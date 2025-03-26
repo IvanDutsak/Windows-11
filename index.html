@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Еволюція Windows: Від Початків до Windows 11</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Підключення бібліотеки для анімацій (AOS - Animate On Scroll) -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Підключення бібліотеки particles.js для інтерактивного фону -->
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <!-- Підключення Font Awesome для іконок -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+
+    <!-- ===== HEADER ===== -->
+    <header class="header">
+        <div id="particles-js" class="particles-container"></div>
+        <div class="header__content">
+            <h1 class="header__title" data-aos="fade-down" data-aos-duration="1000"><i class="fa-brands fa-windows"></i> Подорож крізь Windows</h1>
+            <p class="header__subtitle" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1000">Від перших вікон до елегантності Windows 11</p>
+            <div class="background-animation"></div>
+        </div>
+
+        <!-- Хвиля внизу хедера -->
+        <div class="header-wave">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+                <path fill="#ffffff" fill-opacity="1" d="M0,192L48,176C96,160,192,128,288,122.7C384,117,480,139,576,165.3C672,192,768,224,864,240C960,256,1056,256,1152,229.3C1248,203,1344,149,1392,122.7L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+            </svg>
+        </div>
+    </header>
+
+    <!-- ===== MAIN CONTENT ===== -->
+    <main>
+        <!-- === Розділ 1: Вступ === -->
+        <section class="section intro" id="intro">
+            <h2 data-aos="fade-right"><i class="fas fa-door-open"></i> Вікно у Цифровий Світ</h2>
+            <p data-aos="fade-left" data-aos-delay="200">Операційна система Windows від Microsoft пройшла неймовірний шлях розвитку, ставши невід'ємною частиною життя мільярдів людей. Кожне покоління приносило свої інновації, змінюючи наш спосіб взаємодії з комп'ютерами. Давайте поринемо в історію та дослідимо найновішу главу – Windows 11.</p>
+        </section>
+
+        <!-- === Розділ 2: Еволюція Windows === -->
+        <section class="section evolution" id="evolution">
+            <h2 data-aos="zoom-in"><i class="fas fa-timeline"></i> Етапи Великого Шляху: Покоління Windows</h2>
+            <div class="timeline">
+                <!-- Елемент Таймлайну: Ранні Роки -->
+                <div class="timeline__item" data-aos="fade-up">
+                    <div class="timeline__icon"><i class="fas fa-floppy-disk"></i></div>
+                    <div class="timeline__content">
+                        <h3>Ранні Роки (1.0 - 3.1)</h3>
+                        <p>Перші спроби створити графічний інтерфейс поверх MS-DOS. З'явилися вікна, іконки, миша стала основним інструментом. Windows 3.1 принесла шрифти TrueType та базову мультимедійність.</p>
+                        <small>Інновації: GUI, миша, вікна, шрифти TrueType.</small>
+                    </div>
+                </div>
+
+                <!-- Елемент Таймлайну: Windows 95 -->
+                <div class="timeline__item" data-aos="fade-up">
+                     <div class="timeline__icon"><i class="fas fa-window-restore"></i></div>
+                    <div class="timeline__content">
+                        <h3>Windows 95: Революція</h3>
+                        <p>Величезний стрибок! Меню "Пуск", Панель завдань, підтримка Plug and Play, 32-бітна архітектура, довгі імена файлів. Інтерфейс став значно зручнішим.</p>
+                        <small>Інновації: Меню "Пуск", Панель завдань, Plug and Play, 32-біт.</small>
+                    </div>
+                </div>
+
+                 <!-- Елемент Таймлайну: Windows 98/ME -->
+                <div class="timeline__item" data-aos="fade-up">
+                     <div class="timeline__icon"><i class="fas fa-globe"></i></div>
+                    <div class="timeline__content">
+                        <h3>Windows 98/ME: Інтернет та Мультимедіа</h3>
+                        <p>Покращена підтримка USB та Інтернету (Internet Explorer інтегрований глибше). Windows ME (Millennium Edition) намагалася покращити мультимедіа, але страждала від нестабільності.</p>
+                        <small>Інновації: Покращена підтримка USB, інтеграція з Інтернетом.</small>
+                    </div>
+                </div>
+
+                 <!-- Елемент Таймлайну: Windows XP -->
+                <div class="timeline__item" data-aos="fade-up">
+                     <div class="timeline__icon"><i class="fas fa-desktop"></i></div>
+                    <div class="timeline__content">
+                        <h3>Windows XP: Стабільність та Краса</h3>
+                        <p>Об'єднала стабільність лінійки NT з дружністю 9x. Новий інтерфейс "Luna", покращена стабільність, підтримка Wi-Fi, віддалений робочий стіл. Стала неймовірно популярною.</p>
+                        <small>Інновації: Інтерфейс Luna, покращена стабільність, Wi-Fi.</small>
+                    </div>
+                </div>
+
+                 <!-- Елемент Таймлайну: Windows Vista -->
+                <div class="timeline__item" data-aos="fade-up">
+                     <div class="timeline__icon"><i class="fas fa-gem"></i></div>
+                    <div class="timeline__content">
+                        <h3>Windows Vista: Амбіції та Проблеми</h3>
+                        <p>Візуально вражаючий інтерфейс "Aero" з прозорістю та анімаціями. Покращена безпека (User Account Control - UAC). Однак, високі системні вимоги та проблеми з сумісністю викликали критику.</p>
+                        <small>Інновації: Інтерфейс Aero, UAC, покращена безпека.</small>
+                    </div>
+                </div>
+
+                 <!-- Елемент Таймлайну: Windows 7 -->
+                <div class="timeline__item" data-aos="fade-up">
+                     <div class="timeline__icon"><i class="fas fa-rocket"></i></div>
+                    <div class="timeline__content">
+                        <h3>Windows 7: Робота над Помилками</h3>
+                        <p>Взяла найкраще від Vista, виправивши її недоліки. Швидша, стабільніша, покращена панель завдань (піктограми, списки переходів), бібліотеки. Дуже успішна версія.</p>
+                        <small>Інновації: Покращена панель завдань, бібліотеки, вища продуктивність.</small>
+                    </div>
+                </div>
+
+                 <!-- Елемент Таймлайну: Windows 8/8.1 -->
+                <div class="timeline__item" data-aos="fade-up">
+                     <div class="timeline__icon"><i class="fas fa-tablet-alt"></i></div>
+                    <div class="timeline__content">
+                        <h3>Windows 8/8.1: Сміливий Експеримент</h3>
+                        <p>Радикальна зміна інтерфейсу з фокусом на сенсорні екрани. Стартовий екран замість меню "Пуск", "живі плитки", Charms Bar. Викликала суперечливу реакцію. Windows 8.1 повернула кнопку "Пуск".</p>
+                        <small>Інновації: Стартовий екран, живі плитки, оптимізація під сенсор.</small>
+                    </div>
+                </div>
+
+                 <!-- Елемент Таймлайну: Windows 10 -->
+                <div class="timeline__item" data-aos="fade-up">
+                     <div class="timeline__icon"><i class="fas fa-th-large"></i></div>
+                    <div class="timeline__content">
+                        <h3>Windows 10: Універсальність та Сервіс</h3>
+                        <p>Повернення збалансованого меню "Пуск". Концепція "Windows як сервіс" (постійні оновлення). Універсальні додатки (UWP), Cortana, браузер Edge, DirectX 12, віртуальні робочі столи.</p>
+                        <small>Інновації: Windows як сервіс, Cortana, Edge, DirectX 12, універсальні додатки.</small>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- === Розділ 3: Глибокий Огляд Windows 11 === -->
+        <section class="section win11-deep-dive" id="win11">
+            <h2 data-aos="fade-up"><i class="fa-brands fa-windows"></i> Windows 11: Новий Погляд на Продуктивність та Красу</h2>
+             <!-- Анімація: Паралакс ефект на фоновому зображенні секції (потребує JS) -->
+            <div class="feature-grid">
+                <!-- 1 -->
+                <div class="feature-item" data-aos="flip-left" data-aos-delay="100">
+                    <div class="feature-icon"><i class="fas fa-paint-brush"></i></div>
+                    <h3>Оновлений Дизайн</h3>
+                    <p>Центроване меню "Пуск" та Панель завдань, закруглені кути вікон, нові іконки, ефекти прозорості (Mica, Acrylic). Інтерфейс став чистішим, спокійнішим та сучаснішим.</p>
+                </div>
+                <!-- 2 -->
+                <div class="feature-item" data-aos="flip-left" data-aos-delay="200">
+                     <div class="feature-icon"><i class="fas fa-window-maximize"></i></div>
+                    <h3>Snap Layouts та Snap Groups</h3>
+                    <p>Потужний інструмент для організації вікон. Дозволяє легко розміщувати кілька додатків на екрані за готовими шаблонами та запам'ятовувати групи вікон.</p>
+                </div>
+                <!-- 3 -->
+                 <div class="feature-item" data-aos="flip-left" data-aos-delay="300">
+                     <div class="feature-icon"><i class="fas fa-newspaper"></i></div>
+                    <h3>Віджети (Widgets)</h3>
+                    <p>Персоналізована стрічка новин, погоди, календарів та іншої інформації, доступна з панелі завдань. Налаштовується під ваші інтереси.</p>
+                </div>
+                <!-- 4 -->
+                 <div class="feature-item" data-aos="flip-left" data-aos-delay="400">
+                     <div class="feature-icon"><i class="fas fa-comments"></i></div>
+                    <h3>Інтеграція Microsoft Teams</h3>
+                    <p>Чат Teams інтегрований безпосередньо в Панель завдань для швидкого зв'язку з контактами (у новіших версіях може бути опціональним).</p>
+                </div>
+                <!-- 5: Copilot -->
+                <div class="feature-item" data-aos="flip-up" data-aos-delay="450">
+                    <div class="feature-icon"><i class="fas fa-brain"></i></div>
+                    <h3>Copilot та Інтеграція ШІ</h3>
+                    <p>Вбудований ШІ-помічник Copilot (на базі моделей OpenAI/Microsoft), доступний з бічної панелі. Допомагає з пошуком інформації, генерацією тексту/зображень, налаштуванням системи. ШІ також інтегровано в інші додатки: Paint (Cocreator), Фотографії (розмиття фону), Snipping Tool (розпізнавання тексту).</p>
+                </div>
+                <!-- 6 -->
+                 <div class="feature-item" data-aos="flip-left" data-aos-delay="500">
+                     <div class="feature-icon"><i class="fas fa-tachometer-alt"></i></div>
+                    <h3>Покращення Продуктивності</h3>
+                    <p>Оптимізація роботи з пам'яттю, кращий пріоритет для активних додатків, швидше виведення з режиму сну. Технологія DirectStorage для прискорення завантаження ігор.</p>
+                </div>
+                <!-- 7 -->
+                 <div class="feature-item" data-aos="flip-left" data-aos-delay="600">
+                     <div class="feature-icon"><i class="fas fa-gamepad"></i></div>
+                    <h3>Ігрові Можливості</h3>
+                    <p>Auto HDR для автоматичного покращення кольорів у іграх, DirectStorage для швидких завантажень (потрібен NVMe SSD), інтеграція Xbox Game Pass.</p>
+                </div>
+                <!-- 8: БЕЗПЕКА ТА ВИМОГИ -->
+                <div class="feature-item" data-aos="flip-left" data-aos-delay="900">
+                     <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
+                    <h3>Безпека та Вимоги</h3>
+                    <p>Підвищені вимоги до безпеки: обов'язкова наявність TPM 2.0 та Secure Boot, підтримка лише новіших процесорів. Це забезпечує кращий захист, але обмежує коло сумісних пристроїв.</p>
+                </div>
+                <!-- 9 -->
+                 <div class="feature-item" data-aos="flip-left" data-aos-delay="800">
+                     <div class="feature-icon"><i class="fas fa-store"></i></div>
+                    <h3>Новий Microsoft Store</h3>
+                    <p>Перероблений магазин додатків, відкритіший для розробників, підтримує різні типи додатків (Win32, PWA, UWP) та Android-додатки.</p>
+                </div>
+                <!-- 10: ПІДТРИМКА ANDROID -->
+                 <div class="feature-item" data-aos="flip-left" data-aos-delay="700">
+                     <div class="feature-icon"><i class="fab fa-android"></i></div>
+                    <h3>Підтримка Android-додатків</h3>
+                    <p>Можливість встановлювати та запускати Android-додатки через Amazon Appstore (доступність та реалізація можуть змінюватися).</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- === Розділ 4: Windows 11 vs Windows 10 === -->
+        <section class="section comparison" id="comparison">
+            <h2 data-aos="fade-down"><i class="fas fa-balance-scale"></i> Порівняння функцій Windows 10 та Windows 11</h2>
+
+            <!-- Інтерактивний слайдер "До/Після" -->
+            <div class="comparison-slider-container" data-aos="zoom-in">
+                <!-- ... (вміст слайдера залишається без змін) ... -->
+                <div class="comparison-slider">
+                    <div class="before-image">
+                        <img src="images/Windows 10.jpg" alt="Windows 10 Інтерфейс">
+                        <span class="slider-label">Windows 10</span>
+                    </div>
+                    <div class="after-image">
+                        <img src="images/windows_11.jpg" alt="Windows 11 Інтерфейс">
+                        <span class="slider-label">Windows 11</span>
+                    </div>
+                    <div class="slider-handle"></div>
+                </div>
+            </div>
+
+            <!-- Оновлена таблиця порівняння -->
+            <table class="comparison-table" data-aos="fade-up">
+                <!-- ... (вміст таблиці залишається без змін) ... -->
+                 <thead>
+                    <tr>
+                        <th>Характеристика</th>
+                        <th class="win10-header">Windows 10</th>
+                        <th class="vs-divider"></th>
+                        <th class="win11-header">Windows 11</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="feature-name">Інтерфейс (UI/UX)</td>
+                        <td class="win10-feature">Меню "Пуск" та Панель завдань зліва (за замовчуванням), гострі кути вікон, ефект Acrylic (Fluent Design)</td>
+                        <td class="vs-divider"></td>
+                        <td class="win11-feature">Центроване меню "Пуск" та Панель завдань (можна повернути вліво), закруглені кути, ефекти Mica та Acrylic</td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">Багатозадачність</td>
+                        <td class="win10-feature">Snap Assist (притягування вікон до країв/кутів)</td>
+                        <td class="vs-divider"></td>
+                        <td class="win11-feature">Snap Layouts (шаблони розміщення вікон при наведенні на кнопку "Розгорнути"), Snap Groups (запам'ятовування груп вікон)</td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">Віджети/Новини</td>
+                        <td class="win10-feature">Панель "Новини та інтереси" на Панелі завдань</td>
+                        <td class="vs-divider"></td>
+                        <td class="win11-feature">Окрема панель Віджетів (Widgets) зліва</td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">Інтеграція Чату</td>
+                        <td class="win10-feature">Skype (поступово витісняється)</td>
+                        <td class="vs-divider"></td>
+                        <td class="win11-feature">Microsoft Teams Chat інтегрований у Панель завдань (може бути опціональним)</td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">ШІ-Помічник</td>
+                        <td class="win10-feature">Cortana (розвиток припинено, обмежена функціональність)</td>
+                        <td class="vs-divider"></td>
+                        <td class="win11-feature">Вбудований Copilot (бічна панель, глибока інтеграція, підключення до GPT)</td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">Microsoft Store</td>
+                        <td class="win10-feature">Старіший дизайн, переважно UWP-додатки</td>
+                        <td class="vs-divider"></td>
+                        <td class="win11-feature">Новий дизайн, підтримка Win32, PWA, UWP, Android-додатків</td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">Підтримка Android-додатків</td>
+                        <td class="win10-feature">Ні (тільки через емулятори або "Ваш телефон")</td>
+                        <td class="vs-divider"></td>
+                        <td class="win11-feature">Так (через Amazon Appstore/WSA, доступність може відрізнятися)</td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">Ігрові Технології</td>
+                        <td class="win10-feature">DirectX 12, базовий Auto HDR (в налаштуваннях)</td>
+                        <td class="vs-divider"></td>
+                        <td class="win11-feature">DirectX 12 Ultimate, Auto HDR (ширша підтримка), DirectStorage</td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">Системні Вимоги</td>
+                        <td class="win10-feature">Більш гнучкі (TPM 1.2/2.0 рекомендований, широкий спектр CPU)</td>
+                        <td class="vs-divider"></td>
+                        <td class="win11-feature">Жорсткіші (TPM 2.0 обов'язковий, Secure Boot, лише новіші покоління CPU)</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- Просте порівняння системних вимог з іконками -->
+            <div class="simple-requirements-comparison" data-aos="fade-up">
+                <div class="requirements-block">
+                    <h3>Порівняння системних вимог</h3>
+                    <div class="requirements-content">
+                        <div class="os-requirements">
+                            <h4>Windows 10</h4>
+                            <ul>
+                                <li><i class="fas fa-microchip"></i> CPU: 1 ГГц або швидший (підтримка більшості поколінь)</li>
+                                <li><i class="fas fa-memory"></i> RAM: 1 ГБ для 32-bit або 2 ГБ для 64-bit</li>
+                                <li><i class="fas fa-hdd"></i> Сховище: 16 ГБ для 32-bit або 32 ГБ для 64-bit</li>
+                                <li><i class="fas fa-key"></i> TPM: Версія 1.2 (рекомендовано)</li>
+                                <li><i class="fas fa-user-lock"></i> Secure Boot: Опціонально</li>
+                            </ul>
+                        </div>
+                        <div class="vs-block">VS</div>
+                        <div class="os-requirements">
+                            <h4>Windows 11</h4>
+                            <ul>
+                                <li><i class="fas fa-microchip"></i> CPU: 1 ГГц або швидший з 2+ ядрами (8-го покоління або новіші)</li>
+                                <li><i class="fas fa-memory"></i> RAM: 4 ГБ або більше</li>
+                                <li><i class="fas fa-hdd"></i> Сховище: 64 ГБ або більше</li>
+                                <li><i class="fas fa-key"></i> TPM: Версія 2.0 (обов'язково)</li>
+                                <li><i class="fas fa-user-lock"></i> Secure Boot: Обов'язково</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Просте візуальне порівняння функцій з іконками -->
+            <div class="simple-features-comparison" data-aos="fade-up">
+                <div class="features-block">
+                    <h3>Візуальне порівняння ключових функцій</h3>
+                    <div class="features-content">
+                        <div class="os-features">
+                            <h4><i class="fas fa-desktop"></i> Windows 10</h4>
+                            <p>Меню "Пуск" та Панель завдань зліва (за замовчуванням), гострі кути вікон, класичний Fluent Design з ефектом Acrylic.</p>
+                        </div>
+                        <div class="vs-block">VS</div>
+                        <div class="os-features">
+                            <h4><i class="fas fa-palette"></i> Windows 11</h4>
+                            <p>Центроване меню "Пуск" та Панель завдань, елегантні закруглені кути вікон, оновлені ефекти прозорості Mica та Acrylic.</p>
+                        </div>
+                    </div>
+
+                    <div class="features-content">
+                        <div class="os-features">
+                            <h4><i class="fas fa-th"></i> Windows 10</h4>
+                            <p>Snap Assist дозволяє притягувати вікна до країв або кутів екрану, створюючи просте розділення робочого простору.</p>
+                        </div>
+                        <div class="vs-block">VS</div>
+                        <div class="os-features">
+                            <h4><i class="fas fa-th-large"></i> Windows 11</h4>
+                            <p>Snap Layouts пропонує готові шаблони розташування вікон при наведенні на кнопку "Розгорнути", а Snap Groups запам'ятовує групи пов'язаних вікон.</p>
+                        </div>
+                    </div>
+
+                    <div class="features-content">
+                        <div class="os-features">
+                            <h4><i class="fas fa-microphone-slash"></i> Windows 10</h4>
+                            <p>Cortana - голосовий помічник з обмеженими можливостями, розвиток якого практично припинено Microsoft.</p>
+                        </div>
+                        <div class="vs-block">VS</div>
+                        <div class="os-features">
+                            <h4><i class="fas fa-brain"></i> Windows 11</h4>
+                            <p>Copilot - AI-помічник нового покоління з бічною панеллю, інтеграцією GPT, генерацією тексту та зображень, та допомогою з системними налаштуваннями.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Рейтингове порівняння з іконками -->
+            <div class="windows-comparison-header" data-aos="fade-up">
+                <h3><i class="fas fa-star-half-alt"></i> Рейтингове порівняння (за 5-бальною шкалою)</h3>
+            </div>
+
+            <div class="rating-comparison-container" data-aos="fade-up">
+                <div class="rating-category">
+                    <h4><i class="fas fa-palette"></i> Інтерфейс і дизайн</h4>
+                    <div class="rating-row">
+                        <div class="os-name">Windows 10</div>
+                        <div class="rating-bar">
+                            <div class="rating-bar-inner win10-rating" style="width: 70%;">3.5/5</div>
+                        </div>
+                        <div class="rating-comment">Звичний, функціональний, але дещо застарілий дизайн</div>
+                    </div>
+                    <div class="rating-row">
+                        <div class="os-name">Windows 11</div>
+                        <div class="rating-bar">
+                            <div class="rating-bar-inner win11-rating" style="width: 92%;">4.6/5</div>
+                        </div>
+                        <div class="rating-comment">Сучасний, елегантний, з плавними переходами і закругленнями</div>
+                    </div>
+                </div>
+
+                <div class="rating-category">
+                    <h4><i class="fas fa-tachometer-alt"></i> Продуктивність</h4>
+                    <div class="rating-row">
+                        <div class="os-name">Windows 10</div>
+                        <div class="rating-bar">
+                            <div class="rating-bar-inner win10-rating" style="width: 78%;">3.9/5</div>
+                        </div>
+                        <div class="rating-comment">Добре оптимізована, стабільна швидкодія</div>
+                    </div>
+                    <div class="rating-row">
+                        <div class="os-name">Windows 11</div>
+                        <div class="rating-bar">
+                            <div class="rating-bar-inner win11-rating" style="width: 84%;">4.2/5</div>
+                        </div>
+                        <div class="rating-comment">Покращена робота з пам'яттю, швидший старт і кращий приіоритезація процесів</div>
+                    </div>
+                </div>
+
+                <div class="rating-category">
+                    <h4><i class="fas fa-brain"></i> Інтеграція ШІ</h4>
+                     <!-- ... (решта рядків без змін) ... -->
+                    <div class="rating-row">
+                        <div class="os-name">Windows 10</div>
+                        <div class="rating-bar">
+                            <div class="rating-bar-inner win10-rating" style="width: 40%;">2.0/5</div>
+                        </div>
+                        <div class="rating-comment">Обмежена функціональність Cortana, застаріла технологія</div>
+                    </div>
+                    <div class="rating-row">
+                        <div class="os-name">Windows 11</div>
+                        <div class="rating-bar">
+                            <div class="rating-bar-inner win11-rating" style="width: 90%;">4.5/5</div>
+                        </div>
+                        <div class="rating-comment">Потужна інтеграція Copilot, AI-функції в системних додатках</div>
+                    </div>
+                </div>
+
+                <div class="rating-category">
+                    <h4><i class="fas fa-gamepad"></i> Ігрові можливості</h4>
+                    <!-- ... (решта рядків без змін) ... -->
+                    <div class="rating-row">
+                        <div class="os-name">Windows 10</div>
+                        <div class="rating-bar">
+                            <div class="rating-bar-inner win10-rating" style="width: 76%;">3.8/5</div>
+                        </div>
+                        <div class="rating-comment">Добра підтримка ігор, базовий HDR, добрі драйвери</div>
+                    </div>
+                    <div class="rating-row">
+                        <div class="os-name">Windows 11</div>
+                        <div class="rating-bar">
+                            <div class="rating-bar-inner win11-rating" style="width: 88%;">4.4/5</div>
+                        </div>
+                        <div class="rating-comment">Auto HDR, DirectStorage, краща інтеграція з Xbox Game Pass</div>
+                    </div>
+                </div>
+
+                <div class="rating-category">
+                    <h4><i class="fas fa-puzzle-piece"></i> Сумісність з програмами</h4>
+                    <!-- ... (решта рядків без змін) ... -->
+                    <div class="rating-row">
+                        <div class="os-name">Windows 10</div>
+                        <div class="rating-bar">
+                            <div class="rating-bar-inner win10-rating" style="width: 86%;">4.3/5</div>
+                        </div>
+                        <div class="rating-comment">Широка підтримка програм, включаючи застарілі</div>
+                    </div>
+                    <div class="rating-row">
+                        <div class="os-name">Windows 11</div>
+                        <div class="rating-bar">
+                            <div class="rating-bar-inner win11-rating" style="width: 80%;">4.0/5</div>
+                        </div>
+                        <div class="rating-comment">Хороша сумісність, але деякі старі програми мають проблеми</div>
+                    </div>
+                </div>
+
+                <div class="rating-category">
+                    <h4><i class="fas fa-shield-alt"></i> Безпека системи</h4>
+                    <!-- ... (решта рядків без змін) ... -->
+                    <div class="rating-row">
+                        <div class="os-name">Windows 10</div>
+                        <div class="rating-bar">
+                            <div class="rating-bar-inner win10-rating" style="width: 72%;">3.6/5</div>
+                        </div>
+                        <div class="rating-comment">Хороший базовий захист, але менш суворі вимоги</div>
+                    </div>
+                    <div class="rating-row">
+                        <div class="os-name">Windows 11</div>
+                        <div class="rating-bar">
+                            <div class="rating-bar-inner win11-rating" style="width: 94%;">4.7/5</div>
+                        </div>
+                        <div class="rating-comment">Значні покращення безпеки завдяки вимогам TPM 2.0 і Secure Boot</div>
+                    </div>
+                </div>
+
+                <div class="rating-category">
+                    <h4><i class="fas fa-chart-line"></i> Сучасність і перспективи розвитку</h4>
+                    <!-- ... (решта рядків без змін) ... -->
+                     <div class="rating-row">
+                        <div class="os-name">Windows 10</div>
+                        <div class="rating-bar">
+                            <div class="rating-bar-inner win10-rating" style="width: 50%;">2.5/5</div>
+                        </div>
+                        <div class="rating-comment">Підтримка до 2025 року, без великих оновлень</div>
+                    </div>
+                    <div class="rating-row">
+                        <div class="os-name">Windows 11</div>
+                        <div class="rating-bar">
+                            <div class="rating-bar-inner win11-rating" style="width: 96%;">4.8/5</div>
+                        </div>
+                        <div class="rating-comment">Активний розвиток, регулярні оновлення, пріоритет Microsoft</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- === Розділ 5: Висновок === -->
+        <section class="section conclusion" id="conclusion">
+            <h2 data-aos="fade-down"><i class="fas fa-flag-checkered"></i> Windows 11: Еволюція чи Революція?</h2>
+            <!-- ... (текст висновку залишається без змін) ... -->
+             <p data-aos="fade-up" data-aos-delay="200">Windows 11 – це значний крок вперед у плані дизайну та користувацького досвіду. Вона пропонує свіжий, сучасний вигляд, покращену багатозадачність та цікаві нові функції, як-от віджети, оптимізований магазин додатків та, що важливо останнім часом, інтегрований ШІ-помічник Copilot. В основі лежить надійний фундамент Windows 10, але з акцентом на візуальну елегантність, продуктивність та інтелектуальні можливості.</p>
+            <p data-aos="fade-up" data-aos-delay="400">Головною перешкодою для багатьох залишаються підвищені системні вимоги. Якщо ваш комп'ютер відповідає їм, Windows 11 пропонує приємне оновлення з доступом до новітніх функцій та ШІ. Якщо ні, Windows 10 залишається чудовою, підтримуваною системою до жовтня 2025 року.</p>
+            <p data-aos="fade-up" data-aos-delay="600">Вибір залежить від ваших потреб, можливостей вашого заліза та бажання спробувати найсучасніші інструменти, включаючи ШІ. Windows 11 однозначно вказує напрямок розвитку настільних систем Microsoft – до більшої інтеграції, краси, інтуїтивності та інтелекту.</p>
+        </section>
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <p>Автори Дуцак Іван, Буковецька Каріна</p>
+    </footer>
+
+    <!-- Підключення скриптів -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            once: true,
+            offset: 50,
+            duration: 800,
+            easing: 'ease-in-out',
+        });
+    </script>
+     <script src="scripts.js"></script>
+</body>
+</html>

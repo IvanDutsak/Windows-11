@@ -1,0 +1,1195 @@
+/* ===== ЗАГАЛЬНІ СТИЛІ ===== */
+:root {
+    --primary-color: #0078d4; /* Синій Windows */
+    --secondary-color: #f0f0f0; /* Світло-сірий фон */
+    --text-color: #333;
+    --light-text-color: #fff;
+    --border-radius: 12px; /* Закруглені кути як у Win11 */
+    --section-padding: 60px 20px;
+    --animation-duration: 0.4s;
+    --win10-color: #0078d7; /* Колір Windows 10 */
+    --win11-color: #0c59cf; /* Колір Windows 11, трохи темніший */
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth; /* Плавна прокрутка */
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: #ffffff; /* Білий фон для контрасту */
+    overflow-x: hidden; /* Запобігання горизонтальній прокрутці через анімації */
+}
+
+h1, h2, h3 {
+    margin-bottom: 1rem;
+    line-height: 1.3;
+}
+
+h1 { font-size: 3rem; }
+h2 { font-size: 2.2rem; color: var(--primary-color); }
+h3 { font-size: 1.5rem; }
+
+p {
+    margin-bottom: 1rem;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.section {
+    padding: var(--section-padding);
+    max-width: 1200px;
+    margin: 40px auto;
+    background-color: var(--secondary-color);
+    border-radius: var(--border-radius);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform var(--animation-duration) ease-out, opacity var(--animation-duration) ease-out;
+    position: relative;
+    z-index: 1;
+}
+
+h2 {
+    text-shadow: 0 0 8px rgba(0, 120, 212, 0.3);
+    transition: text-shadow 0.3s ease;
+}
+h2:hover {
+    text-shadow: 0 0 15px rgba(0, 120, 212, 0.6);
+}
+
+
+/* ===== HEADER ===== */
+.header {
+    min-height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: var(--light-text-color);
+    position: relative;
+    overflow: hidden; /* Для фонової анімації */
+    background: linear-gradient(135deg, rgba(0, 120, 212, 0.8), rgba(5, 56, 107, 0.9)), url('https://wallpapercave.com/wp/wp7269863.jpg') center center/cover no-repeat;
+}
+
+/* ===== HEADER з Particles.js ===== */
+.particles-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1; /* Particles будуть під контентом, але над фоном */
+}
+
+.header__content {
+    z-index: 3; /* Контент над particles */
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.2); /* Легке затемнення для читабельності */
+    border-radius: var(--border-radius);
+}
+
+.header-wave {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    z-index: 2; /* Хвиля над particles, але під основним контентом сторінки */
+}
+
+.header-wave svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 70px;
+}
+
+.header__title {
+    font-size: 4rem;
+    font-weight: 700;
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+}
+
+.header__subtitle {
+    font-size: 1.5rem;
+    font-weight: 300;
+    margin-top: 10px;
+}
+
+/* --- Фонова Анімація (placeholder) --- */
+.background-animation {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 150px; /* Висота хвиль */
+    z-index: 1;
+    /* Стилі для анімації, якщо вона буде реалізована */
+}
+
+/* ===== INTRODUCTION ===== */
+.intro {
+    text-align: center;
+    background: linear-gradient(120deg, #eaf5ff, #ffffff); /* Світлий градієнт */
+}
+
+/* ===== EVOLUTION (TIMELINE) ===== */
+.evolution h2 {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+/* --- Лінія Таймлайну --- */
+.timeline::after {
+    content: '';
+    position: absolute;
+    width: 4px;
+    background-color: var(--primary-color);
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -2px;
+    z-index: 1;
+}
+
+.timeline__item {
+    padding: 10px 40px;
+    position: relative;
+    background-color: inherit;
+    width: 50%;
+    margin-bottom: 30px; /* Відступ між елементами */
+    z-index: 2;
+}
+
+/* --- Розміщення елементів зліва/справа --- */
+.timeline__item:nth-child(odd) {
+    left: 0;
+    padding-right: 60px; /* Відступ від центру */
+    text-align: right;
+}
+
+.timeline__item:nth-child(even) {
+    left: 50%;
+    padding-left: 60px; /* Відступ від центру */
+    text-align: left;
+}
+
+/* --- Іконка на лінії --- */
+.timeline__icon {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    right: -25px; /* Центрування на лінії */
+    top: 15px;
+    background-color: var(--secondary-color);
+    border: 3px solid var(--primary-color);
+    border-radius: 50%;
+    z-index: 3;
+    display: flex;           /* Використовуємо flex для центрування */
+    justify-content: center; /* Горизонтальне центрування */
+    align-items: center;     /* Вертикальне центрування */
+    font-size: 1.8rem; /* Розмір іконок */
+    color: var(--primary-color);
+    line-height: 1; /* Важливо для вертикального центрування */
+    transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+}
+
+.timeline__item:nth-child(even) .timeline__icon {
+    left: -25px; /* Центрування для парних */
+}
+
+.timeline__icon i {
+    vertical-align: middle; /* Додаткове вирівнювання */
+}
+
+/* Анімація: Збільшення іконки при наведенні */
+.timeline__item:hover .timeline__icon {
+    transform: scale(1.2);
+    background-color: var(--primary-color);
+    color: var(--light-text-color);
+}
+
+/* --- Контент блоку --- */
+.timeline__content {
+    padding: 20px 30px;
+    background-color: white;
+    position: relative;
+    border-radius: var(--border-radius);
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+/* Анімація: Легкий підйом блоку при наведенні */
+.timeline__item:hover .timeline__content {
+     transform: translateY(-5px);
+}
+
+.timeline__content h3 {
+    color: var(--primary-color);
+}
+.timeline__content small {
+    display: block;
+    margin-top: 10px;
+    font-style: italic;
+    color: #555;
+}
+
+
+/* ===== Windows 11 Deep Dive ===== */
+.win11-deep-dive {
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.8), rgba(230, 242, 255, 0.8)), url('https://cdn.wallpapersafari.com/34/82/YFOpdT.jpg') center center/cover fixed;
+    /* 'fixed' створює базовий ефект паралаксу */
+}
+.win11-deep-dive h2 {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    justify-content: center;
+}
+
+.feature-item {
+    background-color: rgba(255, 255, 255, 0.9); /* Легка прозорість */
+    padding: 25px;
+    border-radius: var(--border-radius);
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 120, 212, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    backface-visibility: hidden; /* Запобігає мерехтінню при flip */
+    display: flex;
+    flex-direction: column;
+}
+
+.feature-item:hover {
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: 0 8px 25px rgba(0, 120, 212, 0.2);
+}
+
+.feature-icon {
+    font-size: 3rem; /* Збільшено для кращої видимості іконки */
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+    line-height: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px; /* Фіксована висота для вирівнювання */
+}
+.feature-icon i {
+    vertical-align: middle;
+}
+
+.feature-item h3 {
+    margin-bottom: 0.5rem;
+}
+
+.feature-item p {
+    margin-bottom: 0;
+    flex-grow: 1;
+}
+
+/* ===== Comparison Section ===== */
+.comparison {
+    background-color: #fff; /* Чистий фон для таблиці */
+}
+.comparison h2 {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+/* Слайдер порівняння До/Після */
+.comparison-slider-container {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto 40px;
+    overflow: hidden;
+    border-radius: var(--border-radius);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.comparison-slider {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+    cursor: ew-resize;
+}
+
+.before-image, .after-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.after-image {
+    width: 50%; /* Початкова позиція повзунка */
+}
+
+.before-image img, .after-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Масштабування із збереженням пропорцій */
+    object-position: center; /* Центрування зображення */
+}
+
+.slider-handle {
+    position: absolute;
+    top: 0;
+    left: 50%; /* Початкова позиція */
+    transform: translateX(-50%); /* Точне центрування */
+    width: 4px;
+    height: 100%;
+    background: white;
+    z-index: 10;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    cursor: ew-resize;
+}
+
+.slider-handle::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40px;
+    height: 40px;
+    background: white;
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.slider-handle::after {
+    content: '↔';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--primary-color);
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.slider-label {
+    position: absolute;
+    bottom: 20px;
+    padding: 5px 15px;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    border-radius: 20px;
+    font-weight: bold;
+    z-index: 5;
+}
+
+.before-image .slider-label {
+    left: 20px;
+}
+
+.after-image .slider-label {
+    right: 20px;
+}
+
+/* Оновлені стилі для таблиці порівняння */
+.comparison-table {
+    width: 100%;
+    border-collapse: separate; /* Важливо для border-radius */
+    border-spacing: 0;
+    margin: 2rem auto;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    border-radius: 15px;
+    overflow: hidden;
+    background: #fff;
+    font-size: 1rem;
+}
+
+.comparison-table .feature-name {
+    font-weight: 600;
+    color: #333;
+    width: 20%;
+    text-align: left;
+    padding: 16px 20px;
+    background: #f7f9fc;
+    border-left: 4px solid var(--primary-color);
+    border-bottom: 1px solid #e6e6e6;
+}
+
+.comparison-table .win10-feature,
+.comparison-table .win11-feature {
+    padding: 16px 20px;
+    vertical-align: middle;
+    position: relative;
+    text-align: left;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    border-bottom: 1px solid #e6e6e6;
+}
+
+.comparison-table .win10-feature {
+    width: 38%;
+    background: linear-gradient(to right, #f0f5ff, #ffffff);
+    color: #0078d7;
+}
+
+.comparison-table .win11-feature {
+    width: 38%;
+    background: linear-gradient(to right, #edf8ff, #ffffff);
+    color: #0067b8;
+}
+
+.comparison-table tr:nth-child(even) .feature-name {
+    background: #eef2f7;
+}
+
+.comparison-table tr:nth-child(even) .win10-feature {
+    background: linear-gradient(to right, #e6f0ff, #f5f9ff);
+}
+
+.comparison-table tr:nth-child(even) .win11-feature {
+    background: linear-gradient(to right, #e0f2ff, #f5faff);
+}
+
+.comparison-table tr:last-child .feature-name,
+.comparison-table tr:last-child .win10-feature,
+.comparison-table tr:last-child .win11-feature {
+    border-bottom: none;
+}
+
+.comparison-table thead th {
+    padding: 16px 18px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: white;
+    text-align: center;
+    vertical-align: middle;
+    position: relative;
+}
+
+.comparison-table thead th:first-child {
+    background: #444;
+    text-align: left;
+}
+
+.comparison-table thead th.win10-header {
+    background: linear-gradient(135deg, #0078d7, #005a9e);
+}
+
+.comparison-table thead th.win11-header {
+    background: linear-gradient(135deg, #0067b8, #004c87);
+}
+
+.vs-divider {
+    width: 4%;
+    background: repeating-linear-gradient(45deg, #f0f0f0, #f0f0f0 5px, #e0e0e0 5px, #e0e0e0 10px);
+    position: relative;
+    border-bottom: 1px solid #e6e6e6;
+}
+.comparison-table tr:last-child .vs-divider {
+    border-bottom: none;
+}
+
+.vs-divider::after {
+    content: "VS";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    color: #555;
+    font-weight: 700;
+    font-size: 0.8rem;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Додаємо іконки чи індикатори для характеристик */
+.win10-feature::before,
+.win11-feature::before {
+    display: inline-block;
+    margin-right: 8px;
+    font-weight: bold;
+    vertical-align: middle;
+}
+
+.win10-feature::before {
+    content: "10";
+    color: #0078d7;
+    font-size: 0.85rem;
+    background: rgba(0, 120, 215, 0.1);
+    padding: 2px 5px;
+    border-radius: 4px;
+}
+
+.win11-feature::before {
+    content: "11";
+    color: #0067b8;
+    font-size: 0.85rem;
+    background: rgba(0, 103, 184, 0.1);
+    padding: 2px 5px;
+    border-radius: 4px;
+}
+
+/* Анімація при ховері */
+.comparison-table tr:hover .win10-feature,
+.comparison-table tr:hover .win11-feature {
+    background: #f0f8ff;
+    transition: background 0.3s ease;
+}
+
+.comparison-table tr:hover .feature-name {
+    background: #e0e7f5;
+    transition: background 0.3s ease;
+}
+
+
+/* Стилі для простого порівняння системних вимог */
+.simple-requirements-comparison,
+.simple-features-comparison {
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 30px 0;
+}
+
+.requirements-block,
+.features-block {
+    width: 100%;
+}
+
+.requirements-block h3,
+.features-block h3 {
+    text-align: center;
+    color: white;
+    background: linear-gradient(135deg, #0078d4, #005a9e);
+    padding: 15px;
+    margin: -20px -20px 20px -20px;
+    border-radius: 12px 12px 0 0;
+    font-size: 1.5rem;
+}
+
+.requirements-content,
+.features-content {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #eaeaea;
+    padding-bottom: 20px;
+}
+
+.features-content:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.os-requirements,
+.os-features {
+    flex: 1;
+    padding: 0 15px;
+}
+
+.os-requirements h4,
+.os-features h4 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: #333;
+    display: flex; /* Для вирівнювання іконки та тексту */
+    align-items: center; /* Для вирівнювання іконки та тексту */
+}
+
+.os-requirements:first-of-type h4,
+.os-features:first-of-type h4 {
+    color: #0078d4; /* Windows 10 color */
+}
+
+.os-requirements:last-of-type h4,
+.os-features:last-of-type h4 {
+    color: #0067b8; /* Windows 11 color */
+}
+
+.os-requirements ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.os-requirements li {
+    margin-bottom: 8px;
+    padding-left: 30px; /* Збільшено для іконки */
+    position: relative;
+    line-height: 1.5;
+    min-height: 20px; /* Гарантує місце для іконки */
+}
+.os-requirements li:before {
+    content: none; /* Прибрати стандартний маркер '•' */
+}
+
+.vs-block {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    padding: 0 15px;
+    color: #666;
+    font-size: 1.2rem;
+    align-self: center; /* Центрування VS по вертикалі між блоками */
+}
+
+.os-features p {
+    margin: 0;
+    line-height: 1.6;
+}
+
+
+/* Рейтингове порівняння */
+.windows-comparison-header {
+    background: var(--primary-color);
+    color: white;
+    text-align: center;
+    padding: 20px;
+    border-radius: var(--border-radius) var(--border-radius) 0 0;
+    margin: 30px 0 0 0; /* Змінено margin-bottom на 0 */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+    display: flex; /* Для вирівнювання іконки та тексту */
+    align-items: center; /* Для вирівнювання іконки та тексту */
+    justify-content: center; /* Для вирівнювання іконки та тексту */
+}
+
+.windows-comparison-header h3 {
+    margin: 0;
+    color: white;
+    font-size: 1.8rem;
+    position: relative;
+}
+
+.windows-comparison-header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, transparent 48%, rgba(255, 255, 255, 0.1) 50%, transparent 52%);
+    background-size: 10px 10px;
+    z-index: 1;
+    opacity: 0.5;
+}
+
+
+.rating-comparison-container {
+    max-width: 1000px;
+    margin: 0 auto 30px auto; /* Змінено margin-top на 0 */
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.95); /* Трохи менш прозорий */
+    border-radius: 0 0 15px 15px; /* Закруглення тільки знизу */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.rating-category {
+    margin-bottom: 25px;
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 20px;
+}
+
+.rating-category:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.rating-category h4 {
+    color: #333;
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    display: flex; /* Для вирівнювання іконки та тексту */
+    align-items: center; /* Для вирівнювання іконки та тексту */
+}
+
+.rating-row {
+    display: grid;
+    grid-template-columns: 100px 1fr 1fr; /* Назва | Бар | Коментар */
+    gap: 15px;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 5px 0;
+}
+
+.os-name {
+    font-weight: 600;
+    color: #444;
+    font-size: 0.95rem;
+}
+
+.rating-bar {
+    background: #eaeaea;
+    height: 25px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.rating-bar-inner {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: width 1s ease-in-out; /* Плавна анімація ширини */
+    white-space: nowrap; /* Щоб текст не переносився */
+    overflow: hidden; /* Ховати текст, якщо він не влазить */
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+.win10-rating {
+    background: linear-gradient(to right, #3498db, #2980b9);
+}
+
+.win11-rating {
+    background: linear-gradient(to right, #4a90e2, #0078d7);
+}
+
+.rating-comment {
+    font-size: 0.9rem;
+    color: #666;
+    line-height: 1.4;
+}
+
+/* ===== CONCLUSION ===== */
+.conclusion {
+    text-align: center;
+    background: linear-gradient(to top, #e0eafc, #ffffff); /* Завершальний світлий градієнт */
+}
+
+/* ===== FOOTER ===== */
+.footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+    background-color: #343a40;
+    color: #adb5bd;
+    font-size: 0.9rem;
+}
+
+/* ===== Кнопка "Наверх" ===== */
+.scroll-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+    line-height: 50px; /* Центрування стрілки */
+    text-align: center;
+    cursor: pointer;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: opacity 0.3s, visibility 0.3s, transform 0.3s;
+    z-index: 1000;
+    text-decoration: none;
+}
+.scroll-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+.scroll-to-top:hover {
+     background-color: #005a9e; /* Темніший синій при наведенні */
+     transform: scale(1.1);
+}
+
+/* ===== РОЗДІЛЮВАЧІ-ХВИЛІ МІЖ СЕКЦІЯМИ ===== */
+.wave-separator {
+    position: relative;
+    height: 80px; /* Зменшено висоту хвилі */
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    margin: -40px 0 -1px 0; /* Скореговано для кращого перекриття */
+    z-index: 0; /* Під секціями */
+}
+
+.wave-separator svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 80px; /* Зменшено висоту SVG */
+    transform: rotateY(180deg);
+}
+
+.wave-separator .wave-fill {
+    /* Колір буде встановлено через JS або CSS селектори */
+    transition: fill 0.3s ease;
+}
+
+/* Чергування кольорів хвиль */
+.section + .wave-separator .wave-fill {
+    fill: var(--secondary-color); /* Колір фону секції, що йде ПІСЛЯ хвилі */
+}
+.wave-separator + .section {
+    /* Секція після хвилі */
+}
+/* Можливо, знадобиться складніший підхід через JS для точного збігу кольорів */
+section.intro + .wave-separator .wave-fill { fill: #ffffff; }
+section.evolution + .wave-separator .wave-fill { fill: var(--secondary-color); }
+section.win11-deep-dive + .wave-separator .wave-fill { fill: var(--secondary-color); } /* Фон глибокого огляду складний, залишаємо сірий */
+section.comparison + .wave-separator .wave-fill { fill: #ffffff; }
+section.conclusion + .wave-separator .wave-fill { fill: #ffffff; } /* Після висновку нема розділювача */
+
+
+/* ===== СТИЛІ ДЛЯ ІКОНОК FONT AWESOME ===== */
+.rating-category h4 i,
+.os-requirements li i,
+.os-features h4 i,
+.section h2 i, /* Додано для заголовків секцій */
+.windows-comparison-header h3 i, /* Для рейтингового заголовка */
+.header__title i { /* Додано для заголовка хедера */
+    margin-right: 10px; /* Відступ від тексту */
+    color: var(--primary-color); /* Основний колір */
+    width: 25px; /* Фіксована ширина для вирівнювання */
+    text-align: center;
+    vertical-align: middle; /* Краще вирівнювання з текстом */
+}
+
+.header__title i {
+    color: inherit; /* Колір заголовка хедера */
+}
+
+.windows-comparison-header h3 i {
+    color: inherit; /* Білий колір заголовка */
+    font-size: 0.9em;
+}
+
+.section h2 i {
+    font-size: 0.9em;
+    opacity: 0.9;
+    color: inherit; /* Використовувати колір батьківського h2 */
+}
+
+.os-requirements li i {
+    color: var(--primary-color); /* Повертаємо колір, якщо inherit не працює як треба */
+    position: absolute;
+    left: 0;
+    top: 50%; /* Центрування по вертикалі */
+    transform: translateY(-50%); /* Точне центрування */
+    font-size: 0.9em;
+}
+.os-requirements:first-of-type li i {
+    color: var(--win10-color);
+}
+.os-requirements:last-of-type li i {
+    color: var(--win11-color);
+}
+
+/* Іконки в заголовках візуального порівняння функцій */
+.features-block .os-features h4 i {
+    color: inherit; /* Використовувати колір заголовка */
+}
+
+
+/* ===== АДАПТИВНІСТЬ (MEDIA QUERIES) ===== */
+@media (max-width: 768px) {
+    h1 { font-size: 2.5rem; }
+    .header__title { font-size: 3rem; }
+    .header__subtitle { font-size: 1.2rem; }
+    .section {
+        padding: 40px 15px;
+        margin: 30px auto;
+    }
+    h2 { font-size: 1.8rem; }
+    h3 { font-size: 1.3rem; }
+
+    /* --- Адаптація Таймлайну --- */
+    .timeline::after {
+        left: 31px;
+    }
+    .timeline__item {
+        width: 100%;
+        padding-left: 70px;
+        padding-right: 15px;
+        text-align: left;
+    }
+     .timeline__item:nth-child(odd),
+    .timeline__item:nth-child(even) {
+        left: 0;
+        padding-left: 70px;
+        padding-right: 15px;
+        text-align: left;
+    }
+    .timeline__icon {
+        left: 6px;
+        width: 45px;
+        height: 45px;
+        font-size: 1.6rem;
+    }
+     .timeline__item:nth-child(odd) .timeline__icon,
+    .timeline__item:nth-child(even) .timeline__icon {
+        left: 6px;
+    }
+     .timeline__content {
+        padding: 15px 20px;
+    }
+
+    .feature-grid {
+        grid-template-columns: 1fr; /* Один стовпець */
+    }
+    .feature-icon {
+        height: 50px;
+        font-size: 2.5rem;
+    }
+
+    /* Адаптація таблиці порівняння */
+    .comparison-table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+    .comparison-table thead, .comparison-table tbody, .comparison-table tr {
+        display: block;
+    }
+    .comparison-table th, .comparison-table td {
+        display: block;
+        text-align: left;
+        padding: 12px 15px;
+        font-size: 0.9rem;
+        border-bottom: 1px solid #eee;
+        width: auto !important; /* Перевизначити фіксовані ширини */
+        white-space: normal; /* Дозволити перенос тексту */
+    }
+    .comparison-table th:first-child, .comparison-table td:first-child {
+        background: #f2f2f2;
+        font-weight: bold;
+        border-left: none;
+    }
+    .comparison-table thead {
+         display: none; /* Ховаємо заголовок в мобільній версії */
+    }
+    .comparison-table td {
+        border-left: 3px solid transparent; /* Простір для мітки */
+    }
+    .comparison-table .feature-name {
+        font-size: 1rem;
+        font-weight: bold;
+        background: #e9ecef;
+        border-left: none;
+    }
+    .comparison-table .win10-feature {
+        border-left-color: var(--win10-color);
+    }
+     .comparison-table .win11-feature {
+        border-left-color: var(--win11-color);
+    }
+     .comparison-table .vs-divider {
+         display: none; /* Ховаємо роздільник VS */
+     }
+     .comparison-table tr {
+         border: 1px solid #ddd;
+         margin-bottom: 10px;
+         border-radius: 8px;
+         overflow: hidden;
+     }
+      .comparison-table tr:last-child td:last-child {
+         border-bottom: none;
+     }
+
+    /* Слайдер */
+    .comparison-slider {
+        height: 300px;
+    }
+
+    /* Прості порівняння */
+    .requirements-content,
+    .features-content {
+        flex-direction: column;
+    }
+    .os-requirements,
+    .os-features {
+        width: 100%;
+        margin-bottom: 20px;
+        padding: 0;
+    }
+    .vs-block {
+        margin: 15px 0;
+        padding: 10px 0;
+        border-top: 1px dashed #ccc;
+        border-bottom: 1px dashed #ccc;
+        width: 100%;
+        text-align: center;
+    }
+    .os-requirements li {
+        padding-left: 25px;
+    }
+    .os-requirements li i {
+        width: 18px;
+    }
+
+    /* Рейтингове порівняння */
+    .rating-row {
+        grid-template-columns: 80px 1fr; /* Назва | Бар + Коментар */
+        gap: 10px;
+    }
+    .rating-comment {
+        grid-column: 1 / span 2; /* Коментар під назвою та баром */
+        margin-top: 5px;
+        font-size: 0.85rem;
+    }
+    .rating-bar-inner {
+        font-size: 0.8rem;
+    }
+     .rating-category h4 i, .os-features h4 i, .section h2 i, .windows-comparison-header h3 i {
+        width: 20px;
+        margin-right: 8px;
+    }
+
+    /* Хвилі */
+    .wave-separator, .wave-separator svg {
+        height: 60px;
+    }
+    .wave-separator {
+        margin-top: -30px;
+    }
+}
+
+@media (max-width: 480px) {
+     h1 { font-size: 2rem; }
+    .header__title { font-size: 2.5rem; }
+    .header__subtitle { font-size: 1rem; }
+    .section { padding: 30px 10px; }
+    h2 { font-size: 1.6rem; }
+    h3 { font-size: 1.2rem; }
+
+    /* Таймлайн */
+     .timeline__item {
+         padding-left: 60px;
+     }
+     .timeline__icon {
+         width: 40px;
+         height: 40px;
+         font-size: 1.4rem;
+         left: 10px;
+     }
+     .timeline::after {
+         left: 30px;
+     }
+      .timeline__item:nth-child(odd) .timeline__icon,
+     .timeline__item:nth-child(even) .timeline__icon {
+        left: 10px;
+    }
+    .timeline__content {
+        padding: 10px 15px;
+    }
+
+    /* Features */
+    .feature-icon {
+        font-size: 2.2rem;
+        height: 45px;
+    }
+
+    /* Слайдер */
+    .comparison-slider {
+        height: 250px;
+    }
+    .slider-label {
+        font-size: 0.9rem;
+        padding: 4px 10px;
+    }
+    .slider-handle::before { width: 30px; height: 30px; }
+    .slider-handle::after { font-size: 16px; }
+
+    /* Таблиця */
+     .comparison-table td {
+         font-size: 0.85rem;
+     }
+     .comparison-table .feature-name {
+         font-size: 0.9rem;
+     }
+
+    /* Рейтингове порівняння */
+    .rating-row {
+        grid-template-columns: 1fr; /* Все в один стовпчик */
+    }
+    .os-name {
+        margin-bottom: 5px;
+        font-size: 0.9rem;
+    }
+    .rating-comment {
+        grid-column: 1;
+        font-size: 0.8rem;
+    }
+    .rating-bar { height: 20px; }
+    .rating-bar-inner { font-size: 0.75rem; }
+     .rating-category h4 { font-size: 1.1rem; }
+     .rating-category h4 i, .os-requirements li i, .os-features h4 i, .section h2 i, .windows-comparison-header h3 i {
+        width: 18px;
+        margin-right: 6px;
+    }
+
+    /* Хвилі */
+     .wave-separator, .wave-separator svg {
+        height: 50px;
+    }
+    .wave-separator {
+        margin-top: -25px;
+    }
+
+    .scroll-to-top {
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+        font-size: 20px;
+        bottom: 15px;
+        right: 15px;
+    }
+}
+
+/* Анімація прогресс-барів */
+@keyframes fillBar {
+    from { width: 0; }
+    /* to: width: var(--fill-width); -- Кінцева ширина задається в inline стилі */
+}
+
+/* .rating-bar-inner { */
+    /* animation: fillBar 1.5s ease-out forwards; -- Анімація керується через JS */
+/* } */
