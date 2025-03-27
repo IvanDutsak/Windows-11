@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
         particlesJS('particles-js', {
             particles: {
                 number: {
-                    value: 80,
+                    value: 100,
                     density: {
                         enable: true,
                         value_area: 800
@@ -56,36 +56,42 @@ document.addEventListener('DOMContentLoaded', (event) => {
                     },
                 },
                 opacity: {
-                    value: 0.5,
-                    random: false,
+                    value: 0.4,
+                    random: true,
                     anim: {
-                        enable: false
+                        enable: true,
+                        speed: 1,
+                        opacity_min: 0.1,
+                        sync: false
                     }
                 },
                 size: {
                     value: 3,
                     random: true,
                     anim: {
-                        enable: false
+                        enable: true,
+                        speed: 2,
+                        size_min: 0.3,
+                        sync: false
                     }
                 },
                 line_linked: {
                     enable: true,
                     distance: 150,
                     color: "#ffffff",
-                    opacity: 0.4,
+                    opacity: 0.2,
                     width: 1
                 },
                 move: {
                     enable: true,
-                    speed: 2,
+                    speed: 1.5,
                     direction: "none",
-                    random: false,
+                    random: true,
                     straight: false,
                     out_mode: "out",
                     bounce: false,
                     attract: {
-                        enable: false,
+                        enable: true,
                         rotateX: 600,
                         rotateY: 1200
                     }
@@ -108,7 +114,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
                     grab: {
                         distance: 140,
                         line_linked: {
-                            opacity: 1
+                            opacity: 0.8
                         }
                     },
                     push: {
@@ -141,46 +147,77 @@ document.addEventListener('DOMContentLoaded', (event) => {
         setWidth(slider.offsetWidth / 2);
         
         // Події для десктопу
-        handle.addEventListener('mousedown', () => isDown = true);
-        window.addEventListener('mouseup', () => isDown = false);
+        handle.addEventListener('mousedown', (e) => {
+            isDown = true;
+            e.preventDefault(); // Важливо для запобігання вибору тексту
+            slider.style.cursor = 'grabbing'; // Змінюємо курсор
+        });
+        
+        window.addEventListener('mouseup', () => {
+            if (!isDown) return;
+            isDown = false;
+            slider.style.cursor = 'grab'; // Повертаємо курсор
+        });
+        
         window.addEventListener('mousemove', (e) => {
             if (!isDown) return;
+            e.preventDefault(); // Запобігає вибору тексту при перетягуванні
             setWidth(e.clientX);
         });
         
         // Події для мобільних
-        handle.addEventListener('touchstart', () => isDown = true);
-        window.addEventListener('touchend', () => isDown = false);
+        handle.addEventListener('touchstart', (e) => {
+            isDown = true;
+            // Запобігаємо прокрутці сторінки під час перетягування на мобільних
+            e.preventDefault();
+        });
+        
+        window.addEventListener('touchend', () => {
+            isDown = false;
+        });
+        
         window.addEventListener('touchmove', (e) => {
             if (!isDown) return;
-            setWidth(e.touches[0].clientX);
+            // Запобігаємо прокрутці сторінки
+            e.preventDefault();
+            const touch = e.touches[0];
+            setWidth(touch.clientX);
         });
         
         // Клік в будь-якому місці слайдера
-        slider.addEventListener('click', (e) => setWidth(e.clientX));
+        slider.addEventListener('click', (e) => {
+            // Клік по хендлу ми вже обробляємо в інших обробниках
+            if (e.target === handle) return;
+            setWidth(e.clientX);
+        });
+        
+        // Додаємо відповідні курсори
+        slider.style.cursor = 'grab';
+        handle.style.cursor = 'grab';
     });
 
     // ===== АНІМАЦІЯ ФОНУ ХЕДЕРА =====
     const header = document.querySelector('.header');
-    let hue = 195; // Початковий відтінок (близько синього)
+    let hue = 220; // Початковий відтінок (темно-синій)
+    let direction = 1; // Напрямок зміни кольору
+    let speed = 0.1; // Швидкість зміни
 
     function animateBackground() {
         if (!header) return; // Перевірка, чи існує елемент
 
-        hue = (hue + 0.05) % 360; // Дуже повільно змінюємо відтінок
-
-        // Оновлюємо лише частину стилю, що стосується градієнту
-        const gradient = `linear-gradient(135deg, hsla(${hue}, 70%, 50%, 0.8), hsla(${hue + 40}, 70%, 30%, 0.9))`;
-
-        // Перевіряємо, чи є фонове зображення, щоб не перезаписати його
-        const currentBg = window.getComputedStyle(header).backgroundImage;
-        if (currentBg && currentBg !== 'none' && currentBg.includes('url')) {
-            // Якщо є зображення, додаємо градієнт перед ним
-            header.style.backgroundImage = `${gradient}, ${currentBg.substring(currentBg.indexOf('url'))}`;
-        } else {
-            // Якщо немає зображення, просто встановлюємо градієнт
-            header.style.backgroundImage = gradient;
+        // Змінюємо відтінок з ефектом "відскоку" на кінцях спектру
+        hue += speed * direction;
+        if (hue > 280 || hue < 180) {
+            direction *= -1; // Змінюємо напрямок
         }
+
+        // Створюємо красивий градієнт з використанням HSL для кращого контролю
+        const gradient = `linear-gradient(135deg, 
+            hsla(${hue}, 80%, 45%, 0.85), 
+            hsla(${hue + 60}, 70%, 30%, 0.95))`;
+
+        // Оновлюємо фон
+        header.style.backgroundImage = gradient;
 
         requestAnimationFrame(animateBackground);
     }
@@ -190,22 +227,6 @@ document.addEventListener('DOMContentLoaded', (event) => {
     if (header && !prefersReducedMotion.matches) {
         requestAnimationFrame(animateBackground);
     }
-
-    // ===== АНІМАЦІЯ КРУГОВОЙ ДІАГРАМИ ДЛЯ СИСТЕМНИХ ВИМОГ =====
-    const animateCircleCharts = () => {
-        const charts = document.querySelectorAll('.circle-chart');
-        
-        charts.forEach(chart => {
-            const percentage = chart.getAttribute('data-percentage');
-            const circle = chart.querySelector('.circle-chart-circle');
-            
-            // Встановлюємо CSS-змінну для conic-gradient
-            circle.style.setProperty('--chart-percentage', `${percentage}%`);
-        });
-    };
-    
-    // Запускаємо анімацію кругових діаграм
-    animateCircleCharts();
 
     // ===== ДОДАВАННЯ SVG-ХВИЛЬ ЯК РОЗДІЛЮВАЧІ МІЖ СЕКЦІЯМИ =====
     const addWaveSeparators = () => {
@@ -223,6 +244,20 @@ document.addEventListener('DOMContentLoaded', (event) => {
                 </svg>
                 `;
                 
+                // Визначаємо колір заливки хвилі на основі фону НАСТУПНОЇ секції
+                const nextSection = sections[index + 1];
+                let fillColor = 'var(--secondary-color)'; // За замовчуванням
+                if (nextSection) {
+                    // Проста перевірка класів для визначення фону (можна зробити складніше)
+                    if (nextSection.classList.contains('intro') || nextSection.classList.contains('comparison') || nextSection.classList.contains('conclusion')) {
+                        fillColor = '#ffffff';
+                    } else if (nextSection.classList.contains('win11-deep-dive')) {
+                        // Для win11-deep-dive фон складний, залишаємо сірий або білий
+                        fillColor = 'var(--secondary-color)'; // Або '#ffffff'
+                    }
+                }
+                waveContainer.querySelector('.wave-fill').style.fill = fillColor;
+                
                 // Додаємо після поточної секції
                 section.after(waveContainer);
             }
@@ -236,39 +271,38 @@ document.addEventListener('DOMContentLoaded', (event) => {
     function animateRatingBars() {
         const ratingBars = document.querySelectorAll('.rating-bar-inner');
         
-        // Перевіряємо чи елементи прогрес-барів існують на сторінці
         if (ratingBars.length === 0) return;
         
-        // Коли прогрес-бари стають видимими, запускаємо анімацію
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     const bar = entry.target;
-                    // Отримуємо ширину з inline стилю (width: XX%)
-                    const widthValue = bar.style.width;
+                    const widthValue = bar.getAttribute('data-target-width'); // Зберігаємо цільову ширину в атрибуті
                     
-                    // Спочатку встановлюємо ширину 0 для запуску анімації
-                    bar.style.width = '0%';
+                    // Перевіряємо, чи користувач не вимкнув анімації
+                    const prefersReducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+                    if (prefersReducedMotionQuery.matches) {
+                        bar.style.width = widthValue; // Встановлюємо одразу кінцеву ширину
+                    } else {
+                        bar.style.transition = 'width 1s ease-in-out'; // Додаємо transition тут
+                        bar.style.width = '0%';
+                        setTimeout(() => {
+                            bar.style.width = widthValue;
+                        }, 100); // Невелика затримка перед стартом анімації
+                    }
                     
-                    // Додаємо невелику затримку для кращого візуального ефекту
-                    setTimeout(() => {
-                        // Відновлюємо оригінальну ширину для анімації
-                        bar.style.width = widthValue;
-                    }, 300);
-                    
-                    // Припиняємо спостереження після першої анімації
                     observer.unobserve(bar);
                 }
             });
-        }, { threshold: 0.2 }); // Запускаємо коли 20% елемента видно
+        }, { threshold: 0.2 });
         
-        // Спостерігаємо за всіма прогрес-барами
         ratingBars.forEach(bar => {
+            // Зберігаємо цільову ширину в data-атрибуті перед анімацією
+            bar.setAttribute('data-target-width', bar.style.width);
             observer.observe(bar);
         });
     }
     
-    // Запускаємо анімацію прогрес-барів
     animateRatingBars();
     
     // Повторно запускаємо анімацію при зміні розміру вікна
@@ -276,48 +310,51 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
     // Анімація рядків таблиці порівняння функцій
     function animateComparisonTable() {
-        const tableRows = document.querySelectorAll('.comparison-table tbody tr');
+        const table = document.querySelector('.comparison-table');
+        if (!table) return;
+        const tableRows = table.querySelectorAll('tbody tr');
         
-        // Перевіряємо чи елементи таблиці існують на сторінці
         if (tableRows.length === 0) return;
         
-        // Ховаємо всі рядки на початку
+        // Перевіряємо налаштування анімації
+        const prefersReducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+        if (prefersReducedMotionQuery.matches) {
+             // Якщо анімації вимкнені, просто показуємо таблицю
+             tableRows.forEach(row => {
+                 row.style.opacity = "1";
+                 row.style.transform = "translateY(0)";
+             });
+             return; // Виходимо, анімація не потрібна
+        }
+        
+        // Ховаємо рядки для анімації
         tableRows.forEach((row, index) => {
             row.style.opacity = "0";
             row.style.transform = "translateY(20px)";
-            row.style.transition = `all 0.5s ease ${index * 0.1}s`;
+            row.style.transition = `opacity 0.5s ease ${index * 0.1}s, transform 0.5s ease ${index * 0.1}s`;
         });
         
-        // Коли таблиця стає видимою, запускаємо анімацію рядків
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    const table = entry.target;
-                    const rows = table.querySelectorAll('tbody tr');
-                    
+                    const rows = entry.target.querySelectorAll('tbody tr');
                     rows.forEach(row => {
                         row.style.opacity = "1";
                         row.style.transform = "translateY(0)";
                     });
-                    
-                    // Припиняємо спостереження після анімації
-                    observer.unobserve(table);
+                    observer.unobserve(entry.target);
                 }
             });
-        }, { threshold: 0.1 }); // Запускаємо коли 10% таблиці видно
+        }, { threshold: 0.1 });
         
-        // Спостерігаємо за таблицею
-        const table = document.querySelector('.comparison-table');
-        if (table) {
-            observer.observe(table);
-        }
+        observer.observe(table);
         
-        // Додаємо ефект при наведенні на клітинки таблиці
+        // Ефект при наведенні (залишаємо, бо це не основна анімація)
         const tableCells = document.querySelectorAll('.win10-feature, .win11-feature');
         tableCells.forEach(cell => {
             cell.addEventListener('mouseenter', function() {
                 this.style.transform = "scale(1.02)";
-                this.style.transition = "transform 0.2s ease";
+                this.style.transition = "transform 0.2s ease"; // Додаємо transition тут
                 this.style.zIndex = "2";
             });
             
@@ -328,46 +365,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
         });
     }
 
-    // Запускаємо анімацію таблиці порівняння
     animateComparisonTable();
 });
-
-
-
-// Приклад: Проста анімація фону (зміна градієнту) - може бути ресурсомісткою
-
-const header = document.querySelector('.header');
-let hue = 195; // Початковий відтінок (близько синього)
-
-function animateBackground() {
-    if (!header) return; // Перевірка, чи існує елемент
-
-    hue = (hue + 0.05) % 360; // Дуже повільно змінюємо відтінок
-
-    // Оновлюємо лише частину стилю, що стосується градієнту
-    const gradient = `linear-gradient(135deg, hsla(${hue}, 70%, 50%, 0.8), hsla(${hue + 40}, 70%, 30%, 0.9))`;
-
-    // Перевіряємо, чи є фонове зображення, щоб не перезаписати його
-    const currentBg = window.getComputedStyle(header).backgroundImage;
-    if (currentBg && currentBg !== 'none' && currentBg.includes('url')) {
-         // Якщо є зображення, додаємо градієнт перед ним
-        header.style.backgroundImage = `${gradient}, ${currentBg.substring(currentBg.indexOf('url'))}`;
-    } else {
-        // Якщо немає зображення, просто встановлюємо градієнт
-        header.style.backgroundImage = gradient;
-    }
-
-    requestAnimationFrame(animateBackground);
-}
-
-// Запускати тільки якщо користувач не проти анімації і є фон
-// Перевірка на налаштування доступності користувача
-const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
-
-if (header && !prefersReducedMotion.matches) {
-    // requestAnimationFrame(animateBackground); // Розкоментуйте для запуску анімації градієнту
-}
-
 
 // Інші складні анімації (частинки, паралакс) краще реалізовувати
 // за допомогою спеціалізованих бібліотек (particles.js, rellax.js, GSAP)
